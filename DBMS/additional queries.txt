@@ -1,0 +1,49 @@
+select * from emp
+where sal<
+(select avg(sal) from emp
+where deptno =
+(select deptno from emp
+where ename = 'Allen'));
+
+ 
+
+select * from emp
+where sal>
+( select min(sal) from emp
+where deptno =
+(select deptno from dept
+where dname='RESEARCH'));
+
+
+select * from emp
+where sal>any
+( select min(sal) from emp
+where deptno in
+(select deptno from emp
+where ename in ('Allen', 'Smith'))
+group by deptno);
+
+
+select * from emp
+where job='Clerk'and
+deptno in
+(select deptno from emp
+group by deptno
+having count(*)<
+(select count(*) from emp
+where deptno =
+(select deptno from emp
+where ename = 'Allen')));
+
+
+
+select * from emp
+where job='Clerk'and
+deptno in
+(select deptno from emp
+group by deptno
+having count(*)>
+(select count(*) from emp
+where deptno =
+(select deptno from emp
+where ename = 'Miller')));

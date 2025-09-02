@@ -1,0 +1,335 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\qc\f0\fs36\lang9  DBMS Assignment-2 26/08/2025 Amar-05 & Dilraj-18\par
+
+\pard\sa200\sl276\slmult1\fs28\par
+1. Write an SQL query to fetch \ldblquote FIRST_NAME\rdblquote  FROM Worker table \par
+using the alias name as <WORKER_NAME>.\par
+\par
+SELECT first_name "Worker_Name"\par
+FROM worker;\par
+\par
+ 2. Write an SQL query to fetch \ldblquote FIRST_NAME\rdblquote  FROM Worker table in \par
+upper case.\par
+\par
+SELECT  UPPER(first_name)\par
+FROM worker;\par
+\par
+ 3. Write an SQL query to fetch unique values of DEPARTMENT FROM \par
+Worker table.\par
+\par
+SELECT DISTINCT(DEPARTMENT)\par
+FROM worker;\par
+\par
+ 4. Write an SQL query to print the first three characters of FIRST_NAME FROM Worker table.\par
+\par
+SELECT SUBSTRING(first_name,1,3) "First three"\par
+FROM worker;\par
+\par
+ 5. Write an SQL query to find the position of the alphabet (\lquote a\rquote ) in the \par
+first name column \lquote Amitabh\rquote  FROM Worker table.\par
+Ans:-\par
+ \tab SELECT  INSTR(lower(first_name ), 'a')'occurances of a'\par
+ \tab FROM  worker;\par
+\par
+ 6. Write an SQL query to print the FIRST_NAME , departmentname \par
+FROM Worker table separated by white space.\par
+Ans:-\par
+\tab SELECT  CONCAT(first_name , " " , department)\par
+\tab FROM  worker;\par
+\par
+ 7. Write an SQL query to print the DEPARTMENT FROM Worker table \par
+after removing white spaces FROM the left side.\par
+Ans:-\par
+\tab SELECT  LTRIM(department)\par
+\tab FROM worker;\par
+\par
+8. Write an SQL query that fetches the unique values of DEPARTMENT \par
+FROM Worker table and prints its length.\par
+Ans:- \par
+\tab SELECT  DISTINCT(department), LENGTH(department) length\par
+\tab FROM  worker;\par
+ \par
+ 9. Write an SQL query to print the FIRST_NAME FROM Worker table \par
+after replacing \lquote a\rquote  with \lquote A\rquote .\par
+Ans:- :- \par
+\tab SELECT  REPLACE(first_name, 'a', 'A') \par
+\tab FROM worker;\par
+\par
+ 10. Write an SQL query to print the FIRST_NAME and LAST_NAME \par
+FROM Worker table into a single column COMPLETE_NAME. A space \par
+char should separate them.\par
+Ans:-\par
+\tab SELECT  CONCAT(first_name,' ', last_name) COMPLETE_NAME\par
+\tab FROM worker;\par
+\par
+ 11. Write an SQL query to print all Worker details FROM the Worker \par
+table order by FIRST_NAME Ascending.\par
+Ans:- \par
+\tab SELECT *\par
+\tab FROM worker\par
+\tab ORDER BY first_name;\par
+ 12. Write an SQL query to print all Worker details FROM the Worker \par
+table order by FIRST_NAME Ascending and DEPARTMENT \par
+Descending.\par
+Ans:-\par
+\tab SELECT * \par
+\tab FROM worker\par
+\tab ORDER BY first_name asc , department desc;\par
+\par
+ 13. Write an SQL query to print details for Workers with the first \par
+name as \ldblquote Vipul\rdblquote  and \ldblquote Satish\rdblquote  FROM Worker table.\par
+Ans:- \par
+\tab SELECT  *\par
+\tab FROM worker\par
+\tab WHERE first_name IN ('Vipul','Satish');\par
+ 14. Write an SQL query to print details of workers excluding first \par
+names, \ldblquote Vipul\rdblquote  and \ldblquote Satish\rdblquote  FROM Worker table.\par
+Ans:-\par
+\tab SELECT  *\par
+\tab FROM worker\par
+\tab WHERE first_name NOT IN ('Vipul','Satish');\par
+ 15. Write an SQL query to print details of Workers with \par
+DEPARTMENT name as \ldblquote Admin\rdblquote .\par
+Ans:-\par
+\tab SELECT *\par
+\tab FROM worker\par
+\tab WHERE department = 'Admin';\par
+ \par
+ 16. Write an SQL query to print details of the Workers whose \par
+FIRST_NAME contains \lquote a\rquote .\par
+Ans:-\par
+\tab SELECT *\par
+\tab FROM Worker\par
+\tab WHERE INSTR(FIRST_NAME, 'a') > 0;\par
+\fs36 OR\par
+\fs28\tab SELECT *\par
+\tab FROM Worker\par
+\tab WHERE FIRST_NAME LIKE '%a%';\par
+\tab\par
+ 17. Write an SQL query to print details of the Workers whose \par
+FIRST_NAME ends with \lquote a\rquote .\par
+Ans:-\par
+\tab SELECT *\par
+\tab FROM worker\par
+\tab WHERE first_name LIKE '%a';\par
+OR\par
+\tab SELECT *\par
+\tab FROM worker\par
+\tab WHERE first_name REGEXP 'a$';\par
+\par
+ 18. Write an SQL query to print details of the Workers whose \par
+FIRST_NAME ends with \lquote h\rquote  and contains six alphabets.\par
+Ans:-\par
+\tab SELECT *\par
+\tab FROM worker\par
+\tab WHERE first_name LIKE '%h' AND LENGTH (first_name)=6;\par
+\par
+ 19. Write an SQL query to print details of the Workers whose \par
+SALARY lies between 100000 and 500000.\par
+Ans:-\par
+\tab SELECT *\par
+\tab FROM worker\par
+\tab WHERE salary BETWEEN 100000 AND 500000;\par
+\par
+ 20. Write an SQL query to print details of the Workers who have \par
+joined in Feb\rquote 2014.\par
+Ans:-\par
+\tab SELECT *\par
+\tab FROM worker\par
+\tab WHERE MONTH(joining_date)=2 AND YEAR(joining_date)=2014;\par
+OR \par
+\tab SELECT *\par
+\tab FROM worker\par
+\tab WHERE joining_date BETWEEN '2014-02-01' AND '2014-02-28';\par
+\par
+ 21. Write an SQL query to fetch the count of employees working in \par
+the department \lquote Admin\rquote .\par
+Ans:-\par
+\tab SELECT COUNT(*) 'Total Employees'\par
+\tab FROM worker \par
+\tab WHERE department ='Admin';\par
+\par
+ 22. Write an SQL query to fetch worker names with salaries >= 50000 \par
+and <= 100000.\par
+Ans:-\par
+\tab SELECT *\par
+\tab FROM worker\par
+\tab WHERE salary BETWEEN 50000 AND 100000;\par
+ 23. Write an SQL query to fetch the no. of workers for each \par
+department in the descending order.\par
+Ans:-\par
+\tab SELECT department,COUNT(*)\par
+\tab FROM worker\par
+\tab GROUP BY department\par
+\tab ORDER BY department desc;\par
+\par
+\par
+ 24. Write an SQL query to print details of the Workers who are also \par
+Managers.\par
+Ans:-\par
+\tab SELECT e.empno,e.ename,e.job,e.mgr FROM emp e, emp m WHERE e.empno = m.mgr;\par
+\par
+25. Write an SQL query to fetch duplicate records having matching \par
+data in some fields of a table.\par
+ \par
+ 26. Write an SQL query to show only odd rows FROM a table.\par
+Ans:- :-  select * from worker where worker_id%2!=0;\par
+\par
+ 27. Write an SQL query to show only even rows FROM a table.\par
+ Ans:-\par
+\tab SELECT * from worker \par
+\tab WHERE worker_id%2=0;\par
+\par
+ 28. Write an SQL query to clone a new table FROM another table.\par
+Ans:-\par
+
+\pard\li720\sa200\sl276\slmult1 CREATE table mytable \par
+(SELECT * FROM emp WHERE 1=2);\par
+
+\pard\sa200\sl276\slmult1\par
+ 29. Write an SQL query to fetch intersecting records of two tables.\par
+Ans:-\par
+\tab SELECT * FROM emp e , dept d \par
+\tab WHERE d.deptno=e.deptno;\par
+\par
+ 30. Write an SQL query to show records FROM one table that another \par
+table does not have.\par
+Ans:-\par
+
+\pard\li720\sa200\sl276\slmult1 SELECT e.*\par
+FROM emp e\par
+LEFT OUTER JOIN dept d ON e.DEPTNO = d.DEPTNO\par
+WHERE d.DEPTNO IS NULL;\par
+
+\pard\sa200\sl276\slmult1\par
+ 31. Write an SQL query to show the current date and time.\par
+Ans:-\par
+\tab SELECT now();\par
+\par
+ 32. Write an SQL query to show the top n (say 10) records of a table.\par
+Ans:-\par
+\tab SELECT * FROM emp \par
+\tab limit 10;\par
+\par
+ 33. Write an SQL query to determine the nth (say n=5) highest salary \par
+FROM a table.\par
+Ans:- :-\par
+\tab SELECT ename, deptno,sal FROM emp \par
+\tab ORDER BYsal desc limit 4,1; \par
+\par
+ 34. Write an SQL query to determine the 5th highest salary without \par
+using TOP or limit method.\par
+Ans:-\par
+
+\pard\li720\sa200\sl276\slmult1 SELECT \par
+
+\pard\sa200\sl276\slmult1\par
+ 35. Write an SQL query to fetch the list of employees with the same \par
+salary.\par
+Ans:-\par
+\tab SELECT DISTINCT e.EMPNO, e.ENAME, e.JOB, e.SAL,  \tab e.DEPTNO\par
+\tab FROM emp e\par
+\tab INNER JOIN emp m ON e.SAL = m.SAL AND e.EMPNO != \tab m.EMPNO\par
+\tab ORDER BY e.SAL, e.EMPNO;\par
+\tab OR\par
+\tab SELECT e.*, m.* FROM emp e join emp m on e.sal=m.sal and \par
+\tab e.empno<m.empno;\par
+\par
+ 36. Write an SQL query to show the second highest salary FROM a \par
+table.\par
+Ans:- \par
+\tab SELECT * FROM emp order by sal desc limit 1,1;\par
+\par
+ 37. Write an SQL query to show one row twice in results FROM a table.\par
+Ans:-\par
+\tab SELECT * FROM EMP\par
+\tab WHERE empno = 7369\par
+\tab union all\par
+\tab SELECT * FROM EMP\par
+\tab WHERE empno = 7369;\par
+\par
+ 38. Write an SQL query to fetch intersecting records of two tables.\par
+Ans:-\par
+\tab SELECT * FROM emp e , dept d \par
+\tab WHERE d.deptno=e.deptno;\par
+\par
+ 39. Write an SQL query to fetch the first 50% records FROM a table.\par
+Ans:-\par
+\tab select * from worker where worker_id < (select count(*) from \tab worker)/2; \par
+\par
+ 40. Write an SQL query to fetch the departments that have less than \par
+five people in it.\par
+Ans:-\par
+
+\pard\li720\sa200\sl276\slmult1 SELECT DEPTNO, COUNT(*) AS emp_count\par
+FROM emp\par
+GROUP BY DEPTNO\par
+HAVING COUNT(*) < 5;\par
+
+\pard\sa200\sl276\slmult1  \par
+ 41. Write an SQL query to show all departments along with the \par
+number of people in there department.\par
+Ans:-SELECT e.deptno, d.dname, count(e.deptno) total FROM emp e, dept d\par
+\tab WHERE e.deptno = d.deptno and total <5\par
+\tab group by e.deptno,d.dname\par
+\tab order by deptno;\par
+\tab OR\par
+ \tab SELECT e.deptno, d.dname, count(e.deptno) FROM emp e left outer  \tab join  \tab dept d on e.deptno = d.deptno\par
+\tab group by e.deptno,d.dname\par
+\tab union\par
+\tab SELECT e.deptno, d.dname, count(e.deptno) FROM emp e right \tab outer join  \tab dept d on e.deptno = d.deptno\par
+\tab group by e.deptno,d.dname\par
+\tab order by deptno;\par
+\par
+ 42. Write an SQL query to show the last record FROM a table.\par
+Ans:- \par
+SELECT * FROM emp order by empno desc limit 1;\par
+\par
+ 43. Write an SQL query to fetch the first row of a table.\par
+Ans:-\par
+SELECT * FROM emp limit 1;\par
+\par
+ 44. Write an SQL query to fetch the last five records FROM a table.\par
+Ans:-\par
+SELECT * FROM emp order by empno desc limit 5;\par
+\par
+ 45. Write an SQL query to print the name of employees having the \par
+highest salary in each department.\par
+Ans:-\par
+SELECT empno, ename, sal salary, deptno FROM emp\par
+WHERE sal in (SELECT max(sal) FROM emp group by  deptno);\par
+\par
+ 46. Write an SQL query to fetch three max salaries FROM a table.\par
+Ans:-\par
+SELECT ename, deptno,sal FROM emp order by sal desc limit 3; \par
+\par
+ 47. Write an SQL query to fetch three min salaries FROM a table.\par
+Ans:-\par
+SELECT ename, deptno,sal FROM emp order by sal  limit 3; \par
+ 48. Write an SQL query to fetch nth max salaries FROM a table.\par
+SELECT ename, deptno,sal FROM emp order by sal desc  limit 4,1; \par
+\par
+ 49. Write an SQL query to fetch departments along with the total \par
+salaries paid for each of them.\par
+Ans:- \par
+SELECT  sum(sal),e.deptno, dname FROM emp e, dept d\par
+WHERE e.deptno = d.deptno\par
+group by e.deptno, dname\par
+order by e.deptno ;\par
+OR\par
+SELECT  sum(sal),e.deptno, dname FROM emp e left outer join dept d\par
+on e.deptno = d.deptno group by e.deptno,dname\par
+union\par
+SELECT  sum(sal),e.deptno, dname FROM emp e right outer join dept d\par
+on e.deptno = d.deptno\par
+group by e.deptno, dname\par
+order by deptno;\par
+\par
+50. Write an SQL query to fetch the names of workers who earn the \par
+highest salary.\par
+Ans:-\par
+\tab SELECT sal, ename, deptno FROM emp \par
+\tab ORDER BY SAL DESC limit 4;\par
+}
+ 
